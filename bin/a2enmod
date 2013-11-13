@@ -44,7 +44,7 @@ if ( $obj eq 'mod' ) {
 else {
     $dir    = 'sites';
     $sffx   = '';
-    $reload = 'reload';
+    $reload = 'restart';
 }
 $name = ucfirst($obj);
 
@@ -84,7 +84,7 @@ foreach my $acton (@objs) {
     doit($acton) or $rc = 1;
 }
 
-info("To activate the new configuration, you need to run:\n  service apache2 $reload\n")
+info("To activate the new configuration, you need to run:\n  apachectl -k $reload\n")
     if $request_reload;
 
 exit($rc);
